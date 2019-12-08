@@ -14,6 +14,7 @@ namespace StudyAssistant.Models
         [Required(ErrorMessage = "Campo obrigatório!")]
         public string Description { get; set; }
         public int RightAnswerId { get; set; }
+        public int TypeOfQuestionId { get; set; }
         public ICollection<Answer> Answers { get; set; }
     }
 }
