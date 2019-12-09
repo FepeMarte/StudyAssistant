@@ -55,7 +55,7 @@ namespace StudyAssistant
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Administrators}/{action=Login}/{id?}");
             });
         }
     }
