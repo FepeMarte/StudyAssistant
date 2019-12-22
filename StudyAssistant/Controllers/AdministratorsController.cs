@@ -18,7 +18,13 @@ namespace StudyAssistant.Controllers
         [HttpPost]
         public IActionResult Login(Administrator administrator)
         {
-            return View(administrator);
+            return RedirectToAction("Management");
+        }
+
+        [HttpGet]
+        public IActionResult Management()
+        {
+            return View();
         }
     }
 }

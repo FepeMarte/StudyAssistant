@@ -4,13 +4,35 @@
     background-color: rgb(78, 78, 78);
 }
 
-#laranja{
-    color:rgb(255, 106, 0);
-
+.orangeB {
+    color: white;
+    background-color: rgb(255, 106, 0);
 }
+
+.orangeB:hover {
+    background-color: rgb(250, 181, 131);
+    color: white;
+}
+
 .tamanho{
     font-size:20px;
 }
 #grafite {
     background-color: rgb(62, 62, 62);
 }
+
+
+.wrapper {
+    margin: auto;
+    padding: 10px;
+    background-color: rgb(62, 62, 62);
+    width:410px;
+    border-radius: 15px;
+}
+
+.formL{
+    width: 380px;
+    margin: 0 auto;
+    padding:10px;
+}
+

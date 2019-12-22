@@ -5,25 +5,24 @@
 }
 
 
-    <div class="container">
+    <div class="container wrapper">
         <h3 class="text-center">Efetuar Login</h3>
-        <form>
-            <div class="form-group">
-                <label label-for="Name">Nome:</label>
-                <input asp-for="Name" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label label-for="Name">Email:</label>
-                <input asp-for="Email" type="email" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label label-for="Name">Senha::</label>
-                <input asp-for="Password" type="password" class="form-control" />
-            </div>
+            <form class="form formL" asp-controller="Administrators" asp-action="Login">
 
-            <button asp-controller="Questions" asp-action="Index" class="btn btn-outline-light ml-5 mr-5">Voltar</button>
-            <button type="submit" class="btn btn-primary">Salvar</button>
+                <div class="form-group">
+                    <label label-for="Name">Email:</label>
+                    <input asp-for="Email" type="email" class="form-control" placeholder="email" autofocus="" />
+                </div>
+                <div class="form-group">
+                    <label label-for="Name">Senha:</label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="senha" />
+                </div>
 
-        </form>
+                <div class="btn-group btn-block">
+                    <button asp-controller="Questions" asp-action="Index" class="btn btn-secondary">Voltar</button> &nbsp; &nbsp;
+                    <button type="submit" class="btn orangeB">Entrar</button>
+                </div>
+
+            </form>
 
     </div>
