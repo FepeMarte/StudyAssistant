@@ -14,7 +14,7 @@ namespace StudyAssistant.Models
         [Required(ErrorMessage = "Campo obrigatório!")]
         public string Name { get; set; }
 
-        [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Digite um email valido!")]
         [Required(ErrorMessage = "Campo obrigatório!")]
         public string Email { get; set; }
 

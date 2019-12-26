@@ -16,9 +16,14 @@ namespace StudyAssistant.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(Administrator administrator)
+        public IActionResult Login([Bind("Email,Password")] Administrator administrator)
         {
-            return RedirectToAction("Management");
+            if (!ModelState.IsValid)
+            {
+                return View(administrator);
+            }
+            return RedirectToAction(nameof(Management));
+            
         }
 
         [HttpGet]
@@ -26,5 +31,19 @@ namespace StudyAssistant.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult Register(Administrator administrator)
+        {
+            return RedirectToAction("Login");
+        }
+
     }
 }
