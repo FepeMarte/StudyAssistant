@@ -4,11 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StudyAssistant.Models;
+using StudyAssistant.Dados;
+using Microsoft.EntityFrameworkCore;
 
 namespace StudyAssistant.Controllers
 {
     public class AdministratorsController : Controller
     {
+
+        private readonly SAContexto _Context;
+
+        public AdministratorsController(SAContexto context)
+        {
+            _Context = context;
+        }
+
         [HttpGet]
         public IActionResult Login()
         {
@@ -20,10 +30,10 @@ namespace StudyAssistant.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(administrator);
+                return RedirectToAction("Management");
             }
-            return RedirectToAction(nameof(Management));
             
+            return View(administrator);
         }
 
         [HttpGet]
@@ -35,15 +45,37 @@ namespace StudyAssistant.Controllers
         [HttpGet]
         public IActionResult Register()
         {
+            ViewBag.Error = "";
             return View();
         }
 
 
         [HttpPost]
-        public IActionResult Register(Administrator administrator)
+        public async Task<IActionResult> Register([Bind("Name","Email","Password")] Administrator administrator)
         {
-            return RedirectToAction("Login");
+            if (!ModelState.IsValid)
+            {
+                return View(administrator);
+            }
+
+            var objAdm = await _Context.Administrators.FirstOrDefaultAsync(adm => adm.Email == administrator.Email);
+
+            if (objAdm == null)
+            {
+                _Context.Add(administrator);
+                _Context.SaveChanges();
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                ViewBag.Error = "Email já cadastrado!";
+                return View(administrator);
+            }
+            
         }
+
+
+
 
     }
 }

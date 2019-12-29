@@ -9,6 +9,7 @@ namespace StudyAssistant.Dados
 {
     public class SAContexto:DbContext
     {
+
         public SAContexto(DbContextOptions<SAContexto> options): base(options)
         {
         }

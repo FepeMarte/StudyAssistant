@@ -22,18 +22,12 @@
 }
 
 
-.wrapper {
-    margin: auto;
-    padding: 10px;
-    background-color: rgb(62, 62, 62);
-    width:410px;
-    border-radius: 15px;
-}
-
-.formL{
+.formL {
     width: 380px;
-    margin: 0 auto;
-    padding:10px;
+    margin: auto;
+    background-color: rgb(62, 62, 62);
+    border-radius: 15px;
+    padding: 20px;
 }
 
 .rodape {

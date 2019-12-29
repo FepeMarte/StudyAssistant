@@ -1,36 +1,42 @@
 ﻿@model StudyAssistant.Models.Administrator
 
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Registrar-se";
 }
 
-<div class="container wrapper">
+
+<form class="form formL" asp-controller="Administrators" asp-action="Register">
     <h3 class="text-center">Registrar-se</h3>
-    <form class="form formL" asp-controller="Administrators" asp-action="Register">
-        <div class="form-group">
-            <label label-for="Name">Nome:</label>
-            <input asp-for="Name" type="text" class="form-control" placeholder="nome" autofocus="" />
-            <span asp-validation-for="Name" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label label-for="Email">Email:</label>
-            <input asp-for="Email" type="email" class="form-control" placeholder="email" autofocus="" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label label-for="Name">Senha:</label>
-            <input asp-for="Password" type="password" class="form-control" placeholder="senha" />
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
-        <br />
-        <div class="btn-group btn-block">
-            <button asp-controller="Administrators" asp-action="Login" class="btn btn-secondary">Voltar</button> &nbsp; &nbsp;
-            <button type="submit" class="btn orangeB">Salvar</button>
-        </div>
 
-    </form>
 
-</div>
+    @if (ViewBag.Error != "")
+    {
+        <span class="text-danger">@ViewBag.Error</span>
+    }
+
+
+    <div class="form-group">
+        <label label-for="Name">Nome:</label>
+        <input asp-for="Name" type="text" class="form-control" placeholder="nome" autofocus="" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label label-for="Email">Email:</label>
+        <input asp-for="Email" type="email" class="form-control" placeholder="email" autofocus="" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label label-for="Name">Senha:</label>
+        <input asp-for="Password" type="password" class="form-control" placeholder="senha" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="btn-group btn-block">
+        <a asp-controller="Questions" asp-action="Index" class="btn btn-secondary">Voltar</a> &nbsp; &nbsp;
+        <button type="submit" class="btn orangeB">Salvar</button>
+    </div>
+
+</form>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
