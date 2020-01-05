@@ -5,27 +5,33 @@
 }
 
 
-<form class="form formL" asp-controller="Administrators" asp-action="Login">
-    <h3 class="text-center">Efetuar Login</h3>
-    <div class="form-group">
-        <label label-for="Name">Email:</label>
-        <input asp-for="Email" type="email" class="form-control" placeholder="email" autofocus="" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label label-for="Name">Senha:</label>
-        <input asp-for="Password" type="password" class="form-control" placeholder="senha" />
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
-
-    <br />
-    <div class="form-group">
-        <div class="btn-group btn-block">
-            <a asp-controller="Questions" asp-action="Index" class="btn btn-secondary">Voltar</a> &nbsp; &nbsp;
-            <button type="submit" class="btn orangeB">Entrar</button>
+    <form class="form formL" asp-controller="Administrators" asp-action="Login">
+        <h3 class="text-center">Efetuar Login</h3>
+        
+        @if (ViewBag.Error != "")
+        {
+            <span class="text-danger">@ViewBag.Error</span>
+        }
+    
+        <div class="form-group">
+            <label label-for="Name">Email:</label>
+            <input asp-for="Email" type="email" class="form-control" placeholder="email" autofocus="" />
+            <span asp-validation-for="Email" class="text-danger"></span>
         </div>
-    </div>
-</form>
+        <div class="form-group">
+            <label label-for="Name">Senha:</label>
+            <input asp-for="Password" type="password" class="form-control" placeholder="senha" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <br />
+        <div class="form-group">
+            <div class="btn-group btn-block">
+                <a asp-controller="Questions" asp-action="Index" class="btn btn-secondary">Voltar</a> &nbsp; &nbsp;
+                <button type="submit" class="btn orangeB">Entrar</button>
+            </div>
+        </div>
+    </form>
 
 
 @section Scripts {
