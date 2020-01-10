@@ -55,6 +55,11 @@ namespace StudyAssistant.Controllers
         [HttpGet]
         public IActionResult Management()
         {
+            if (string.IsNullOrWhiteSpace(HttpContext.Session.GetString("Name")))
+            {
+                return RedirectToAction("Login");
+            }
+
             ViewBag.Name = HttpContext.Session.GetString("Name");
             ViewBag.Id = HttpContext.Session.GetInt32("Id");
 
